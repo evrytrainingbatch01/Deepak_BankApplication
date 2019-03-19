@@ -92,7 +92,6 @@ public class EBAdminDaoImpl implements EBAdminDao {
 	
 	// UPDATE ADMIN
 		public boolean updateAdmin(Admin admin) {
-			
 			PreparedStatement ps = null;
 			 try {
 			        ps = con.prepareStatement("UPDATE ADMIN SET FIRSTNAME=?, LASTNAME=?, AGE=? WHERE ID=?");

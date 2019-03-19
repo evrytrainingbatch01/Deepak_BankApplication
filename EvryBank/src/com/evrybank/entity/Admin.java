@@ -8,6 +8,7 @@ public class Admin {
 	
 	public Admin() {
 		
+		
 	}
 
 	public Admin(Integer id, String firstname, String lastname, Integer age) {

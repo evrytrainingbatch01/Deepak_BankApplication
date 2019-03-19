@@ -31,5 +31,4 @@ public class EBDatabaseUtil {
 		}
 	    return con;
 	}
-
 }

@@ -21,7 +21,6 @@ public class EvryBankApp {
 		Scanner sc = new Scanner(System.in);
 		String ebUserMethodInput = sc.next();
 
-		// Calling Admin service
 		EBAdminManagerImpl ebAdminManagerImpl = new EBAdminManagerImpl();
 
 		// GET ALL ADMINS
@@ -103,8 +102,11 @@ public class EvryBankApp {
 			}
 		}
 
-		// Calling Customer Service
 		EBCustomerManagerImpl ebCustomerManagerImpl = new EBCustomerManagerImpl();
+		
+		
+		
+		
 
 		// VIEW ALL CUSTOMERS
 
@@ -113,6 +115,10 @@ public class EvryBankApp {
 		// DELETE CUSTOMER
 
 		// UPDATE CUSTOMER (ADD MONEY TO CUSTOMERS BALANCE_AMOUNT)
+		
+		
+		
+		
 
 		System.out.println("------ THANK YOU !!! -------");
 	}

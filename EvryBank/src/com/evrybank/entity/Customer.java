@@ -12,6 +12,7 @@ public class Customer {
 	
 	public Customer(){
 		
+		
 	}
 	
 	public Customer(Integer id, String firstname, String lastname, Integer age, String city, String country) {

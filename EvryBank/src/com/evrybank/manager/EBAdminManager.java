@@ -22,6 +22,5 @@ public interface EBAdminManager {
 	    //updateAdmin
 	    public boolean updateAdmin(Admin admin);
 	
-	   
 	
 }

@@ -10,4 +10,6 @@ import com.evrybank.manager.EBCustomerManager;
 public class EBCustomerManagerImpl implements EBCustomerManager{
 	
 	EBCustomerDaoImpl ebCustomerDao = new EBCustomerDaoImpl();
+	
+	
 }

@@ -34,6 +34,7 @@ public class EBAdminManagerImpl implements EBAdminManager{
 		return ebAdminDao.updateAdmin(admin);
 	}
 	
+	
 	/*@Override
 	public boolean addCustomer(Customer customer) {
 		return dao.addCustomer(customer);

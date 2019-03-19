@@ -6,4 +6,5 @@ package com.evrybank.dao;
  */
 public interface EBCustomerDao {
 
+	
 }

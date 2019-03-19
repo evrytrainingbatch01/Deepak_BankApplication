@@ -21,4 +21,5 @@ public interface EBAdminDao {
 	
 	// UPDATE ADMIN
 	public boolean updateAdmin(Admin admin);
+	
 }
