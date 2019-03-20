@@ -3,6 +3,7 @@ package com.evrybank.dao;
 import java.util.Set;
 
 import com.evrybank.entity.Admin;
+import com.evrybank.entity.Customer;
 
 /**
  * @author DEEPAK J A
@@ -21,5 +22,8 @@ public interface EBAdminDao {
 	
 	// UPDATE ADMIN
 	public boolean updateAdmin(Admin admin);
+	
+	// ADD CUSTOMER
+	public boolean addCustomer(Customer customer);
 	
 }

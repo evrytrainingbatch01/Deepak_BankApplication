@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.evrybank.daoImpl.EBAdminDaoImpl;
 import com.evrybank.entity.Admin;
+import com.evrybank.entity.Customer;
 import com.evrybank.manager.EBAdminManager;
 
 /**
@@ -35,11 +36,11 @@ public class EBAdminManagerImpl implements EBAdminManager{
 	}
 	
 	
-	/*@Override
+	@Override
 	public boolean addCustomer(Customer customer) {
-		return dao.addCustomer(customer);
+		return ebAdminDao.addCustomer(customer);
 	}
-
+/*
 	@Override
 	public boolean deleteCustomer(Customer customer) {
 		return dao.deleteCustomer(customer);

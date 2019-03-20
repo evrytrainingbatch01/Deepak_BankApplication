@@ -10,6 +10,7 @@ import java.util.Set;
 
 import com.evrybank.dao.EBAdminDao;
 import com.evrybank.entity.Admin;
+import com.evrybank.entity.Customer;
 import com.evrybank.util.EBDatabaseUtil;
 
 /**
@@ -99,6 +100,28 @@ public class EBAdminDaoImpl implements EBAdminDao {
 			        ps.setString(2, admin.getLastname());
 			        ps.setInt(3, admin.getAge());
 			        ps.setInt(4, admin.getId());
+			        int i = ps.executeUpdate();
+			      if(i == 1) {
+			    	  return true;
+			      }
+			    } catch (SQLException ex) {
+			        ex.printStackTrace();
+			    }
+			return false;
+		}
+
+		@Override
+		public boolean addCustomer(Customer customer) {
+			PreparedStatement ps = null;
+			 try {
+			        ps = con.prepareStatement("INSERT INTO CUSTOMER(FIRSTNAME,LASTNAME,AGE,CITY,COUNTRY,PHONENUMBER,BALAMOUNT) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			        ps.setString(1, customer.getFirstname());
+			        ps.setString(2, customer.getLastname());
+			        ps.setInt(3, customer.getAge());
+			        ps.setString(4, customer.getCity());
+			        ps.setString(5, customer.getCountry());
+			        ps.setInt(6, customer.getPhoneNumber());
+			        ps.setInt(7, customer.getBalAmount());
 			        int i = ps.executeUpdate();
 			      if(i == 1) {
 			    	  return true;

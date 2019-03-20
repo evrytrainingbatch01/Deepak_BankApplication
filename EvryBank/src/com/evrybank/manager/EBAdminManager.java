@@ -2,6 +2,7 @@ package com.evrybank.manager;
 
 import java.util.Set;
 import com.evrybank.entity.Admin;
+import com.evrybank.entity.Customer;
 
 /**
  * @author DEEPAK J A
@@ -22,5 +23,6 @@ public interface EBAdminManager {
 	    //updateAdmin
 	    public boolean updateAdmin(Admin admin);
 	
-	
+	    //add customer
+	    public boolean addCustomer(Customer customer);
 }
