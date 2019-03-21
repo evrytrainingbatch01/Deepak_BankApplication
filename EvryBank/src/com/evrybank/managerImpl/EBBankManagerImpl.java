@@ -5,7 +5,10 @@ import com.evrybank.entity.Account;
 import com.evrybank.entity.Customer;
 import com.evrybank.entity.Transaction;
 import com.evrybank.manager.EBBankManager;
-
+/**
+ * @author DEEPAK J A
+ *
+ */
 public class EBBankManagerImpl implements EBBankManager{
 
 	EBBankDaoImpl ebAccountDao = new EBBankDaoImpl();

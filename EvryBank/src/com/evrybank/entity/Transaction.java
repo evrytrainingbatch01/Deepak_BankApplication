@@ -1,5 +1,8 @@
 package com.evrybank.entity;
-
+/**
+ * @author DEEPAK J A
+ *
+ */
 public class Transaction {
 	
 	private Integer id;

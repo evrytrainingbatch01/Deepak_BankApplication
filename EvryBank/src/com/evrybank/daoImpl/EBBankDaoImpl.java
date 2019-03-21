@@ -12,6 +12,11 @@ import com.evrybank.entity.Customer;
 import com.evrybank.entity.Transaction;
 import com.evrybank.util.EBDatabaseUtil;
 
+/**
+ * @author DEEPAK J A
+ *
+ */
+
 public class EBBankDaoImpl implements EBBankDao{
 
 	//Get connection

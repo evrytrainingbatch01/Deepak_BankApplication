@@ -1,7 +1,10 @@
 package com.evrybank.entity;
 
 import java.util.List;
-
+/**
+ * @author DEEPAK J A
+ *
+ */
 public class Customer {
 	private Integer id;
 	private String firstname;

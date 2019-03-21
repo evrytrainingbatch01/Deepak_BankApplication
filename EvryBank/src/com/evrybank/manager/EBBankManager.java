@@ -3,7 +3,10 @@ package com.evrybank.manager;
 import com.evrybank.entity.Account;
 import com.evrybank.entity.Customer;
 import com.evrybank.entity.Transaction;
-
+/**
+ * @author DEEPAK J A
+ *
+ */
 public interface EBBankManager {
 
 	//getAccountInfo

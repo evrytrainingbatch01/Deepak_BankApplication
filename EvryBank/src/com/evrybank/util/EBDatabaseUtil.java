@@ -3,7 +3,10 @@ package com.evrybank.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * @author DEEPAK J A
+ *
+ */
 public class EBDatabaseUtil {
 
 	public static Connection getConnection(){
