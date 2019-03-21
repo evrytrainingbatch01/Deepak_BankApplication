@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.evrybank.dao.EBCustomerDao;
-import com.evrybank.entity.Admin;
 import com.evrybank.entity.Customer;
 import com.evrybank.util.EBDatabaseUtil;
 
