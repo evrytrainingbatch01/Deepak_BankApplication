@@ -26,4 +26,14 @@ public interface EBAdminDao {
 	// ADD CUSTOMER
 	public boolean addCustomer(Customer customer);
 	
+	
+	// GET ALL CUSTOMERS
+	public Set<Customer> getAllCustomers();
+	
+	// GET CUSTOMER USING ID
+	public Customer getCustomer(Integer id);
+	
+	// DELETE CUSTOMER
+	public boolean deleteCustomer(Customer customer, Integer id);
+	
 }

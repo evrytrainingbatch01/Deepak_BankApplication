@@ -18,11 +18,11 @@ public class EBDatabaseUtil {
 		      Class.forName("com.mysql.cj.jdbc.Driver");
 
 		      //STEP 2: Open a connection
-		      System.out.println("Connecting to a selected database...");
+		     // System.out.println("Connecting to a selected database...");
 		      
 		      //STEP 3: Connection URL, USERNAME, PASSWORD
 		      con = DriverManager.getConnection(DB_URL, USER, PASS);
-		      System.out.println("Connected database successfully...");
+		      //System.out.println("Connected database successfully...");
 		
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -25,4 +25,14 @@ public interface EBAdminManager {
 	
 	    //add customer
 	    public boolean addCustomer(Customer customer);
+	    
+	    
+		//getAllCustomers
+		public Set<Customer> getAllCustomers();
+		
+		//getCustomer
+	    public Customer getCustomer(Integer id);
+	    
+	    //delete customer
+	    public boolean deleteCustomer(Customer customer, Integer id);
 }

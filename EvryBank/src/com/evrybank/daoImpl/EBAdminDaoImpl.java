@@ -110,6 +110,7 @@ public class EBAdminDaoImpl implements EBAdminDao {
 			return false;
 		}
 
+		//ADD CUSTOMER
 		@Override
 		public boolean addCustomer(Customer customer) {
 			PreparedStatement ps = null;
@@ -132,6 +133,78 @@ public class EBAdminDaoImpl implements EBAdminDao {
 			return false;
 		}
 
-	
+		// GET ALL CUSTOMERS
+		public Set<Customer> getAllCustomers() {
+			Set<Customer> setOfCustomers = new HashSet<>();
 
+			String sqlQueryString = "SELECT * FROM CUSTOMER";
+			ResultSet rs = null;
+			Statement statement = null;
+			try {
+				statement = con.createStatement();
+				rs = statement.executeQuery(sqlQueryString);
+				while (rs.next()) {
+					Customer customer = new Customer();
+					customer.setId(rs.getInt(1));
+					customer.setFirstname(rs.getString(2));
+					customer.setLastname(rs.getString(3));
+					customer.setAge(rs.getInt(4));
+					customer.setCity(rs.getString(5));
+					customer.setCountry(rs.getString(6));
+					customer.setPhoneNumber(rs.getInt(7));
+					customer.setBalAmount(rs.getInt(8));
+					setOfCustomers.add(customer);
+					// System.out.println(rs.getInt(1) + " " + rs.getString(2) + " "
+					// + rs.getString(3));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+
+			return setOfCustomers;
+		}
+
+		//GET CUSTOMER
+		@Override
+		public Customer getCustomer(Integer id) {
+			ResultSet rs;
+			Statement statement = null;
+			try {
+				statement = con.createStatement();
+				rs = statement.executeQuery("SELECT * FROM CUSTOMER WHERE ID=" + id);
+				if (rs.next()) {
+					Customer customer = new Customer();
+					customer.setId(rs.getInt(1));
+					customer.setFirstname(rs.getString(2));
+					customer.setLastname(rs.getString(3));
+					customer.setAge(rs.getInt(4));
+					customer.setCity(rs.getString(5));
+					customer.setCountry(rs.getString(6));
+					customer.setPhoneNumber(rs.getInt(7));
+					customer.setBalAmount(rs.getInt(8));
+
+					return customer;
+				}
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			} 
+			return null;
+		}
+
+		// DELETE CUSTOMER
+		public boolean deleteCustomer(Customer customer, Integer id) {
+			
+			PreparedStatement ps = null;
+			try {
+				 ps = con.prepareStatement("DELETE FROM CUSTOMER WHERE ID = ?");
+				ps.setInt(1, customer.getId());
+				int i = ps.executeUpdate();
+				if (i == 1) {
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
 }

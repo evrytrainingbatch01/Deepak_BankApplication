@@ -1,5 +1,7 @@
 package com.evrybank.entity;
 
+import java.util.List;
+
 public class Customer {
 	private Integer id;
 	private String firstname;
@@ -10,13 +12,18 @@ public class Customer {
 	private Integer phoneNumber;
 	private Integer balAmount;
 	
+	private Integer customerAccountId;
+	
+	private List<Account> accounts;
+	
 	public Customer(){
 		
 	}
 	
-	public Customer(String firstname, String lastname, Integer age, String city, String country,
-			Integer phoneNumber, Integer balAmount) {
+	public Customer(Integer id, String firstname, String lastname, Integer age, String city, String country,
+			Integer phoneNumber, Integer balAmount, Integer customerAccountId) {
 		super();
+		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
@@ -24,10 +31,15 @@ public class Customer {
 		this.country = country;
 		this.phoneNumber = phoneNumber;
 		this.balAmount = balAmount;
+		this.customerAccountId = customerAccountId;
 	}
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getFirstname() {
@@ -86,4 +98,20 @@ public class Customer {
 		this.balAmount = balAmount;
 	}
 
+	public Integer getCustomerAccountId() {
+		return customerAccountId;
+	}
+
+	public void setCustomerAccountId(Integer customerAccountId) {
+		this.customerAccountId = customerAccountId;
+	}
+
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+	
 }

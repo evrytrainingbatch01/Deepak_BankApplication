@@ -27,27 +27,35 @@ public class EBAdminManagerImpl implements EBAdminManager{
 		return ebAdminDao.getAdmin(id);
 	}
 	
+	@Override
 	public boolean deleteAdmin(Admin admin, Integer id) {
 		return ebAdminDao.deleteAdmin(admin, id);
 	}
 	
+	@Override
 	public boolean updateAdmin(Admin admin) {
 		return ebAdminDao.updateAdmin(admin);
 	}
 	
+	@Override
+	public Set<Customer> getAllCustomers() {
+		return ebAdminDao.getAllCustomers();
+	}
 	
 	@Override
 	public boolean addCustomer(Customer customer) {
 		return ebAdminDao.addCustomer(customer);
 	}
-/*
-	@Override
-	public boolean deleteCustomer(Customer customer) {
-		return dao.deleteCustomer(customer);
-		
-	}*/
-
 	
+	@Override
+	public Customer getCustomer(Integer id) {
+		return ebAdminDao.getCustomer(id);
+	}
+
+	@Override
+	public boolean deleteCustomer(Customer customer, Integer id) {
+		return ebAdminDao.deleteCustomer(customer, id);
+	}
 	
 
 }
