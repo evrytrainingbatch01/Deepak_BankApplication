@@ -6,8 +6,6 @@ import java.util.Set;
 import com.evrybank.entity.Account;
 import com.evrybank.entity.Admin;
 import com.evrybank.entity.Customer;
-import com.evrybank.entity.Transaction;
-import com.evrybank.entity.TransactionType;
 import com.evrybank.managerImpl.EBAdminManagerImpl;
 import com.evrybank.managerImpl.EBBankManagerImpl;
 import com.evrybank.managerImpl.EBCustomerManagerImpl;
@@ -21,75 +19,126 @@ public class EvryBankApp {
 
 	public static void main(String[] args) {
 
-		System.out.println("---------WELCOME TO EVRY BANK ATM----------");
+		System.out.println("******** WELCOME TO EVRY BANK ATM *********");
 		Scanner sc = new Scanner(System.in);
 
 		EBAdminManagerImpl ebAdminManagerImpl = new EBAdminManagerImpl();
 		EBCustomerManagerImpl ebCustomerManagerImpl = new EBCustomerManagerImpl();
 		EBBankManagerImpl ebBankManagerImpl = new EBBankManagerImpl();
 
-		System.out.println("Select Your Choice");
-		System.out.println("1. Get All Admins");
-		System.out.println("2. Get Admin");
-		System.out.println("3. Delete Admin");
-		System.out.println("4. Update Admin");
-		System.out.println("5. Add Customer");
-		System.out.println("6. Delete a Customer");
-		System.out.println("7. Get All Customers");
-		System.out.println("8. Get Customer");
-		System.out.println("9. Open an Account");
-		System.out.println("10. Show Account Info");
-		System.out.println("11. Deposit");
-		System.out.println("12. Withdraw");
-		System.out.println("13. Transfer");
-		Integer choice = sc.nextInt();
-			
-		switch (choice) {
-		case 1:
-			getAllAdmins(sc, choice, ebAdminManagerImpl);
-			break;
-		case 2:
-			getAdmin(sc, choice, ebAdminManagerImpl);
-			break;
-		case 3:
-			deleteAdmin(sc, choice, ebAdminManagerImpl);
-			break;
-		case 4:
-			updateAdmin(sc, choice, ebAdminManagerImpl);
-			break;
-		case 5:
-			addCustomer(sc, choice, ebAdminManagerImpl, ebBankManagerImpl, ebCustomerManagerImpl);
-			break;
-		case 6:
-			deleteCustomer(sc, choice, ebAdminManagerImpl);
-			break;
-		case 7:
-			getAllCustomers(sc, choice, ebAdminManagerImpl);
-			break;
-		case 8:
-			getCustomer(sc, choice, ebAdminManagerImpl);
-			break;
-		case 9:
-			openAccount(sc, choice, ebBankManagerImpl);
-			break;
-		case 10:
-			showAccountInfo(sc, choice, ebBankManagerImpl);
-			break;
-		case 11:
-			deposit(sc, choice, ebBankManagerImpl);
-			break;
-		case 12:
-			withdraw(sc, choice, ebBankManagerImpl);
-			break;
-		case 13:
-			transfer(sc, choice, ebBankManagerImpl);
-			break;
-		default: 
-			break; 
+		Integer choice1 = 0;
+		Integer choice2 = 0;
+		
+		System.out.println("Are you admin or customer?");
+		String adminOrCustomer = sc.next();
+		
+		if(adminOrCustomer.equalsIgnoreCase("admin")){
+			//IS ADMIN
+			System.out.println("******** ADMIN LOGIN ************");
+			System.out.println("Enter Username : ");
+			String username = sc.next();
+			System.out.println("Enter Password : ");
+			String password = sc.next();
+			if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin123")){
+				System.out.println("***** WELCOME ADMIN USER ********");
+				
+					do{
+						System.out.println("\n*****SELECT YOUR CHOICE******");
+						
+						System.out.println("1. Get All Admins");
+						System.out.println("2. Get Admin");
+						System.out.println("3. Delete Admin");
+						System.out.println("4. Update Admin");
+						System.out.println("5. Add Customer");
+						System.out.println("6. Delete a Customer");
+						System.out.println("7. Get All Customers");
+						System.out.println("8. Get Customer");
+						System.out.println("9. Exit");
+						choice1 = sc.nextInt();
+						switch (choice1) {
+						case 1:
+							getAllAdmins(sc, choice1, ebAdminManagerImpl);
+							break;
+						case 2:
+							getAdmin(sc, choice1, ebAdminManagerImpl);
+							break;
+						case 3:
+							deleteAdmin(sc, choice1, ebAdminManagerImpl);
+							break;
+						case 4:
+							updateAdmin(sc, choice1, ebAdminManagerImpl);
+							break;
+						case 5:
+							addCustomer(sc, choice1, ebAdminManagerImpl, ebBankManagerImpl, ebCustomerManagerImpl);
+							break;
+						case 6:
+							deleteCustomer(sc, choice1, ebAdminManagerImpl);
+							break;
+						case 7:
+							getAllCustomers(sc, choice1, ebAdminManagerImpl);
+							break;
+						case 8:
+							getCustomer(sc, choice1, ebAdminManagerImpl);
+							break;
+						
+						default: System.out.println("Do you want to Logout ? (true/false)"); 
+								if(sc.nextBoolean() == true){
+									System.out.println("Logged out successfully");
+									break;
+								}else{
+									System.out.println("Choose from options again");
+									choice1 = sc.nextInt();
+									break;
+								}
+								
+					}
+				}while(choice1<9);
+			}
+		} else {
+			//IS CUSTOMER
+			System.out.println("******* WELCOME CUSTOMER ********");
+			do{
+				System.out.println("\n*****SELECT YOUR CHOICE******");
+				
+				System.out.println("1. Open an Account");
+				System.out.println("2. Show Account Info");
+				System.out.println("3. Deposit");
+				System.out.println("4. Withdraw");
+				System.out.println("5. Transfer");
+				System.out.println("6. Exit");
+				choice2 = sc.nextInt();
+				switch (choice2) {
+						case 1:
+							openAccount(sc, choice2, ebBankManagerImpl);
+							break;
+						case 2:
+							showAccountInfo(sc, choice2, ebBankManagerImpl);
+							break;
+						case 3:
+							deposit(sc, choice2, ebBankManagerImpl);
+							break;
+						case 4:
+							withdraw(sc, choice2, ebBankManagerImpl);
+							break;
+						case 5:
+							transfer(sc, choice2, ebBankManagerImpl);
+							break;
+						default: System.out.println("Do you want to Logout ? (true/false)"); 
+								 if(sc.nextBoolean() == true){
+									 	System.out.println("Logged out successfully");
+									 	break;
+								}else{
+									System.out.println("Choose from options again");
+									choice2= sc.nextInt();
+									break;
+								}
+							
+					}
+				}while(choice2 < 6);	
 		}
 		
-		System.out.println("\n------ THANK YOU !!! -------");
-	}
+}
+		
 
 	// 1.GET ALL ADMINS
 	public static void getAllAdmins(Scanner sc, Integer choice, EBAdminManagerImpl ebAdminManagerImpl) {
@@ -297,10 +346,11 @@ public class EvryBankApp {
 		}
 	}
 
+	//**************************************************************USER OPERATIONS************************************************************//
 	// BANK OPERATIONS// 
 	// 9. OPENING A NEW CUSTOMER ACCOUNT
 	public static void openAccount(Scanner sc, Integer choice, EBBankManagerImpl ebBankManagerImpl) {
-		if (choice.equals(9)) {
+		if (choice.equals(1)) {
 			Customer customer = createCustomerEntry(sc);
 			System.out.println("Account Number will be automatically generated : ");
 			Double accNumberToBeAssigned = Math.floor(Math.random() * 899999 + 100000);
@@ -324,9 +374,10 @@ public class EvryBankApp {
 		}
 	}
 
+	
 	//10. SHOW ACCOUNT INFORMATION
 	public static void showAccountInfo(Scanner sc, Integer choice, EBBankManagerImpl ebBankManagerImpl) {
-		if (choice.equals(10)) {
+		if (choice.equals(2)) {
 			System.out.println("Enter the account number to display account details :");
 			Account account = ebBankManagerImpl.getAccountInfo(sc.nextInt());
 			System.out.println( "Account Number : " + account.getAccountNumber() + "\n" + 
@@ -337,7 +388,7 @@ public class EvryBankApp {
 	//11. DEPOSIT
 	public static void deposit(Scanner sc, Integer choice, EBBankManagerImpl ebBankManagerImpl) {
 		
-		if(choice.equals(11)){
+		if(choice.equals(3)){
 			System.out.println("Enter the Account Number you want to deposit money to : ");
 			Integer enteredAccountNumberByUser = sc.nextInt();
 			System.out.println("Enter the amount you need to deposit : ");
@@ -365,7 +416,7 @@ public class EvryBankApp {
 	//12. WITHDRAW
 	public static void withdraw(Scanner sc, Integer choice, EBBankManagerImpl ebBankManagerImpl) {
 		
-		if(choice.equals(12)){
+		if(choice.equals(4)){
 			System.out.println("Enter the Account Number you want to withdraw money from : ");
 			Integer enteredAccountNumberByUser = sc.nextInt();
 			System.out.println("Enter the amount you need to deposit : ");
@@ -386,7 +437,7 @@ public class EvryBankApp {
 
 	//13. TRANSFER AMOUNT
 	public static void transfer(Scanner sc, Integer choice, EBBankManagerImpl ebBankManagerImpl) {
-		if(choice.equals(13)){
+		if(choice.equals(5)){
 			System.out.println("Enter From Account Number");
 			Integer fromAccountNumber = sc.nextInt();
 		
@@ -402,14 +453,26 @@ public class EvryBankApp {
 			Integer sumOfamount = Integer.sum(accountOfTo.getAccountbalance(), amountToBeTransferred);
 			Integer differenceOfamount = Integer.sum(accountOfFrom.getAccountbalance(), -amountToBeTransferred);
 			
-			boolean isUpdateSumAccount = ebBankManagerImpl.updateAccount(accountOfTo,sumOfamount);
-			boolean isUpdateDifferenceAccount = ebBankManagerImpl.updateAccount(accountOfFrom, differenceOfamount);
+			System.out.println("Are you sure ? Please confirm (true/false)");
+			boolean userConfirmation = sc.nextBoolean();
+			boolean isUpdateSumAccount = false;
+			boolean isUpdateDifferenceAccount = false;
+			if(userConfirmation){
+				 isUpdateSumAccount = ebBankManagerImpl.updateAccount(accountOfTo,sumOfamount);
+				 isUpdateDifferenceAccount = ebBankManagerImpl.updateAccount(accountOfFrom, differenceOfamount);
+			}
+			
 			
 			if(isUpdateSumAccount && isUpdateDifferenceAccount){
-				System.out.println("Amount has been transferred");
+				System.out.println("Amount has been transferred successfully");
+				accountOfTo = ebBankManagerImpl.getAccountInfo(toAccountNumber);
+				accountOfFrom = ebBankManagerImpl.getAccountInfo(fromAccountNumber);
 				System.out.println("your new balance of TO amount is : " + accountOfTo.getAccountbalance());
 				System.out.println("your new balance of FROM amount is : " + accountOfFrom.getAccountbalance());
+			}else{
+				System.out.println("Transfer cancelled..");
 			}
+			
 		}
 		
 	}

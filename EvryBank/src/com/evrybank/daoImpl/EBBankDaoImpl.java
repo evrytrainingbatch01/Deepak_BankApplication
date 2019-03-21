@@ -8,7 +8,6 @@ import java.sql.Statement;
 
 import com.evrybank.dao.EBBankDao;
 import com.evrybank.entity.Account;
-import com.evrybank.entity.Admin;
 import com.evrybank.entity.Customer;
 import com.evrybank.entity.Transaction;
 import com.evrybank.util.EBDatabaseUtil;
